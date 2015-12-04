@@ -289,8 +289,8 @@ export default class DateTimeField extends Component {
         display: "block",
         position: "absolute",
         top: offset.top,
-        left: "auto",
-        right: 40
+        left: 40,
+        right: "auto"
       };
       return this.setState({
         widgetStyle: styles,
@@ -336,6 +336,10 @@ export default class DateTimeField extends Component {
     }
   }
 
+  onInputBlur = () => {
+    console.log('Blur');
+  }
+
   render() {
     return (
           <div>
@@ -376,7 +380,7 @@ export default class DateTimeField extends Component {
               <span className="input-group-addon" onBlur={this.onBlur} onClick={this.onClick} ref="dtpbutton">
                 <span className={classnames("glyphicon", this.state.buttonIcon)} />
               </span>
-              <input className="form-control" onChange={this.onChange} type="text" value={this.state.inputValue} {...this.props.inputProps}/>
+              <input className="form-control" onFocus={this.onClick} onChange={this.onChange} type="text" value={this.state.inputValue} {...this.props.inputProps}/>
             </div>
           </div>
     );
